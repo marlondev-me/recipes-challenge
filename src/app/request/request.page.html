@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Seu pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header color="medium">
+      <ion-card-title>Bolo escolhido</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+        {{recipe.title }} por: R$ {{recipe.price}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header color="medium">
+      <ion-card-title>Dados de entrega</ion-card-title>
+    </ion-card-header>
+    <form [formGroup]="form">
+      <ion-item lines="full">
+        <ion-input placeholder="Seu nome" type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-input placeholder="Telefone" type="tel" formControlName="tel"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-input placeholder="Endereço" type="text" formControlName="address"></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" expand="block" [disabled]="!form.valid" (click)="submit()">Confirmar Pedido!</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card>
+</ion-content>
